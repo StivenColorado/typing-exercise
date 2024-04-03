@@ -1,0 +1,123 @@
+        :root {
+            color-scheme: light dark;
+            --green: #00b755;
+            --yellow: #daaf38;
+            --red: #ca4754;
+            --gray: #999;
+            --black: #222;
+        }
+
+        @font-face {
+            font-family: 'BPdotsDiamondBold';
+            src: url('../font/BPdots/BPdotsVertical.otf') format('truetype');
+        }
+
+        body {
+            font-family: 'BPdotsDiamondBold', monospace;
+            background: var(--black);
+            display: grid;
+            padding: 32px;
+            justify-content: center;
+            margin-top: 32px;
+        }
+
+        main {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            max-width: 500px;
+        }
+
+        x-time {
+            color: var(--yellow);
+        }
+
+        input {
+            z-index: -999;
+            position: absolute;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        p {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px 8px;
+            margin: 0;
+        }
+
+        x-letter {
+            position: relative;
+            color: var(--gray);
+        }
+
+        x-letter.active::before {
+            content: '|';
+            color: var(--yellow);
+            font-size: 14px;
+            position: absolute;
+            left: -50%;
+            animation: 1s blink infinite ease-in-out;
+        }
+
+        x-letter.correct {
+            color: var(--green);
+        }
+
+        x-letter.incorrect {
+            color: var(--red);
+        }
+
+        x-word {
+            border-bottom: solid 1.5px transparent;
+            transition: border-color 0.3s ease-in-out;
+        }
+
+        @keyframes blink {
+
+            0%,
+            25% {
+                opacity: 1;
+            }
+
+            75% {
+                opacity: 0;
+            }
+        }
+
+        #game {
+            display: block;
+        }
+
+        #results {
+            display: none;
+        }
+
+        h2 {
+            font-weight: 200;
+            opacity: .4;
+            margin: 0;
+            font-size: 16px;
+        }
+
+        h3 {
+            font-weight: 400;
+            margin: 0;
+            font-size: 24px;
+            color: var(--yellow);
+        }
+
+        button {
+            background-color: transparent;
+            border: 0;
+            margin-top: 32px;
+            padding: 8px;
+            opacity: .4;
+            display: inline-block;
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+            cursor: pointer;
+            border-radius: 16px;
+        }
